@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  background-color: black;
+  height: 100vh;
+}
+
+.app-title{
+  font-family: 'Do Hyeon', sans-serif;
+  color:rgb(31, 211, 31);
+  margin:0;
+  padding: 20px;
+  font-weight: 300;
+  font-size: 5rem;
+}
+
+.app-subtitle{
+  color:white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.5rem
+}
+
+
+.log-wrapper{
+  margin: 100px auto;
+  width: 400px;
+  padding-left: 95px;
+}
