@@ -1,19 +1,13 @@
 import React from 'react';
-import { SpotifyApiContext, User } from 'react-spotify-api';
+import Menu from '../Menu/Menu';
+import Profile from '../Profile/Profile';
 
-export default function Main({ token }){
-	return(
-	          <SpotifyApiContext.Provider value={token}>
-				<User>
-					{(user) =>
-						user ? ( 
-							<ul style={{color:'white'}}>
-								<li>Name - {user.display_name}</li>
-								<li>ID - {user.id}</li>
-							</ul>
-						) : null
-					}
-				</User>
-			</SpotifyApiContext.Provider>
+export default function Main(props){
+	return( <>
+			  	<Menu/>
+				<Profile/>
+			  	<h1 className="app-title"  style={{fontSize:'3rem'}}>Sudofy!</h1>
+
+			</>
 	)
 }
