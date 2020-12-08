@@ -6,7 +6,7 @@ import { useSpring, animated } from 'react-spring';
 
 export default function Menu(){
 
-	let [open, setOpen] = useState(false);
+	let [open, setOpen] = useState(true);
 
 	const handleClick = ()=>{
 		setOpen(!open);
