@@ -49,9 +49,12 @@ function processing(features) {
 		return acc + curr.liveness/len;
 	},0) / max
 
+	max = 0;
+	features.forEach((feature)=>{ max = (feature.tempo > max ) ? feature.tempo : max});
+
 	let tempo = features.reduce((acc,curr)=>{
 		return acc + curr.tempo/len;
-	},0) / max
+	},0) / 200
 
 	let result = [
 		{"description": "Acousticness",
@@ -64,6 +67,8 @@ function processing(features) {
 		 'value': instrumentalness},
 		{"description": "Liveness",
 		 'value': liveness},
+		 {"description": "Tempo",
+		 'value': tempo},
 	]
 
 	return result;
@@ -86,6 +91,8 @@ export default function Playlist( ){
 		{"description": "Instrumentalness",
 		 'value': 0},
 		{"description": "Liveness",
+		 'value': 0},
+		{"description": "Tempo",
 		 'value': 0},
 	]);
 
@@ -147,7 +154,7 @@ export default function Playlist( ){
 							</div>
 					)}}
 				</UserPlaylists>
-				<RadarChart outerRadius={300} width={750} height={700} data={data} style={{position:'relative',top:40,left:50, color:'white'}}>
+				<RadarChart outerRadius={300} width={750} height={700} data={data} style={{position:'relative',top:30,left:50, color:'white'}}>
 					<PolarGrid />
 					<PolarAngleAxis dataKey='description' stroke='#37ffa8'/>
 					<PolarRadiusAxis angle={30} domain={[0, 1]} />
