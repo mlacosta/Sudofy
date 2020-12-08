@@ -5,5 +5,7 @@
 }
 .icons-container{
     color:white;
+    position: relative;
+    top:10px;
     font-size: 5rem;
 }

@@ -4,7 +4,6 @@
   font-family: 'Roboto Condensed', sans-serif;
   background-image: url(./img/background_03.jpg);
   background-size: cover;
-  
 
 }
 
@@ -36,7 +35,7 @@
 }
 
 .hatsune{
-  width:400px;
+  width:300px;
   margin-top:20px;
   border-radius:10px;
   animation: slide-up 1s ease;
