@@ -10,7 +10,7 @@
 
 .playlist-element:hover{
     transition: .5s;
-    color:rgb(103, 103, 226);
+    color:rgb(0, 0, 0);
 }
 
 .playlist-list{

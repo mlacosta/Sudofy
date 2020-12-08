@@ -1,22 +1,97 @@
 import { useState, useEffect, useContext } from 'react';
 import { UserPlaylists, PlaylistTracks, SpotifyApiContext, Track } from 'react-spotify-api';
 import { useAppContext } from '../../../AppContext/AppContext';
+import { RadarChart, PolarGrid,PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
 import './Playlist.css' ;
 
+function processing(features) {
+	
+	const len = features.length;
 
+	let max = 0;
 
+	features.forEach((feature)=>{ max = (feature.acousticness > max ) ? feature.acousticness : max});
+
+	let acousticness = features.reduce((acc,curr)=>{
+		return acc + curr.acousticness/len;
+	},0) / max
+
+	max = 0;
+
+	features.forEach((feature)=>{ max = (feature.danceability > max ) ? feature.danceability : max});
+
+	let danceability = features.reduce((acc,curr)=>{
+		return acc + curr.danceability/len;
+	},0) / max
+
+	max = 0;
+	features.forEach((feature)=>{ max = (feature.energy > max ) ? feature.energy : max});
+
+	let energy = features.reduce((acc,curr)=>{
+		return acc + curr.energy/len;
+	},0) / max
+
+	max = 0;
+	features.forEach((feature)=>{ max = (feature.instrumentalness > max ) ? feature.instrumentalness : max});
+
+	let instrumentalness = features.reduce((acc,curr)=>{
+		return acc + curr.instrumentalness/len;
+	},0) / max
+
+	let loudness = features.reduce((acc,curr)=>{
+		return acc + curr.loudness/len;
+	},0) / max
+
+	max = 0;
+	features.forEach((feature)=>{ max = (feature.liveness > max ) ? feature.liveness : max});
+
+	let liveness = features.reduce((acc,curr)=>{
+		return acc + curr.liveness/len;
+	},0) / max
+
+	let tempo = features.reduce((acc,curr)=>{
+		return acc + curr.tempo/len;
+	},0) / max
+
+	let result = [
+		{"description": "Acousticness",
+		 'value': acousticness},
+		{"description": "Danceability",
+		 'value': danceability},
+		{"description": "Energy",
+		 'value': energy},
+		{"description": "Instrumentalness",
+		 'value': instrumentalness},
+		{"description": "Liveness",
+		 'value': liveness},
+	]
+
+	return result;
+
+}
 
 
 export default function Playlist( ){
 
 	let [playlistIds, setIds] = useState([]);
 	let [currentId, setCurrentId] = useState(null); //playlist ID
-	let [tracks, setTracks] = useState([]);
+	let [tracks, setTracks] = useState(null);
+	let [data,setData] = useState([
+		{"description": "Acousticness",
+		 'value': 0},
+		{"description": "Danceability",
+		 'value': 0},
+		{"description": "Energy",
+		 'value': 0},
+		{"description": "Instrumentalness",
+		 'value': 0},
+		{"description": "Liveness",
+		 'value': 0},
+	]);
 
 	const { token } = useAppContext();
 
 	const fetchTrackFeatures = async ()=>{
-
 		let features = [];
 		let songs = '';
 		tracks.forEach((track)=>{songs+= track + ','});
@@ -26,13 +101,16 @@ export default function Playlist( ){
 		{headers: {'Authorization': `Bearer ${token}`}})					   
 		.then((res)=>{return res.json()})
 		.then((res)=>{features = res.audio_features});;
-
 		return features;
 	
 	}
 	
 	useEffect(async ()=>{
-		let features = await fetchTrackFeatures();
+		if(tracks){
+			let temp = await fetchTrackFeatures();
+			setData(processing(temp));
+		}
+
 	},[tracks]);
 
 	useEffect( async()=>{
@@ -63,13 +141,19 @@ export default function Playlist( ){
 													onClick={()=>{setCurrentId(playlist.id)}}>
 													{playlist.name}
 												</li>
-										
 										)
 									}
 								</ul>
 							</div>
 					)}}
 				</UserPlaylists>
+				<RadarChart outerRadius={300} width={750} height={700} data={data} style={{position:'relative',top:40,left:50, color:'white'}}>
+					<PolarGrid />
+					<PolarAngleAxis dataKey='description' stroke='#37ffa8'/>
+					<PolarRadiusAxis angle={30} domain={[0, 1]} />
+					<Radar name={`ID: ${currentId}`} dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+					<Legend />
+				</RadarChart>
 			</div>
 		)
 }
