@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import './Menu.css';
+import Selector from './Selector/Selector';
 import { useSpring, animated } from 'react-spring';
 
 export default function Menu(){

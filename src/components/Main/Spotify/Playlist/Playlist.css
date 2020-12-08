@@ -1,3 +1,32 @@
 .playlist-element{
     cursor: pointer;
+    background-color: gray;
+    height: 30px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.playlist-element:hover{
+    transition: .5s;
+    color:rgb(103, 103, 226);
+}
+
+.playlist-list{
+    text-align: left;
+    margin: 40px 0;
+
+    list-style-type: none;
+    max-width: 500px;
+}
+
+
+.playlist-container{
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    margin: 10px 0;
 }
