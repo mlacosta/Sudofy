@@ -3,6 +3,7 @@ import { UserPlaylists, PlaylistTracks, SpotifyApiContext, Track } from 'react-s
 import { useAppContext } from '../../../AppContext/AppContext';
 import { RadarChart, PolarGrid,PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
 import './Playlist.css' ;
+import { Ellipsis } from 'react-css-spinners';
 
 function processing(features) {
 	
@@ -96,6 +97,8 @@ export default function Playlist( ){
 		 'value': 0},
 	]);
 
+	let [loading, setLoading] = useState(false); 
+
 	const { token } = useAppContext();
 
 	const fetchTrackFeatures = async ()=>{
@@ -116,6 +119,7 @@ export default function Playlist( ){
 		if(tracks){
 			let temp = await fetchTrackFeatures();
 			setData(processing(temp));
+			setLoading(false);
 		}
 
 	},[tracks]);
@@ -132,6 +136,7 @@ export default function Playlist( ){
 
 
 	return(<div className = 'playlist-container'>
+				{loading && <Ellipsis style={{position:'absolute', margin:'auto'}}/>}
 				<UserPlaylists>
 					{({ data }) => {
 						if (data){
@@ -145,7 +150,7 @@ export default function Playlist( ){
 									playlistIds
 										.map(playlist=>
 												<li className = 'playlist-element'
-													onClick={()=>{setCurrentId(playlist.id)}}>
+													onClick={()=>{setCurrentId(playlist.id); setLoading(true)}}>
 													{playlist.name}
 												</li>
 										)

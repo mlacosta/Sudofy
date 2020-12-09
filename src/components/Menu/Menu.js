@@ -3,7 +3,10 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import './Menu.css';
 import Selector from './Selector/Selector';
-import { useSpring, animated } from 'react-spring';
+import { useSpring } from 'react-spring';
+import { RiPlayList2Fill, RiHeadphoneFill } from 'react-icons/ri';
+import { IoMdMicrophone } from 'react-icons/io';
+import { FaMusic } from 'react-icons/fa';
 
 export default function Menu(){
 
@@ -35,6 +38,12 @@ export default function Menu(){
 		from: {transform: 'translate3d(-200px,0,0)'},
 		config:{duration:400}
 	  })
+	
+	const icons = {
+		position:'relative',
+		right:10,
+		top:2
+	}
 
 	return (
 		<div className="menu-wrapper">
@@ -42,6 +51,19 @@ export default function Menu(){
 				(						
 					<div className="side-menu" style={props}>
 						<IoIosCloseCircleOutline style={close} onClick={handleClick}/>
+						<Selector name='Profile Statistics' color='red'>
+							<RiHeadphoneFill style={icons}/>
+						</Selector>
+						<Selector name='Playlist Analysis' color='orange'>
+							<RiPlayList2Fill style={icons}/>
+						</Selector>
+						<Selector name='Artist Analysis' color='green'>
+							<IoMdMicrophone style={icons}/>
+						</Selector>
+						<Selector name='Track Analysis' color='blue'>
+							<FaMusic style={icons}/>
+						</Selector>
+						
 					</div>
 
 				) : (
