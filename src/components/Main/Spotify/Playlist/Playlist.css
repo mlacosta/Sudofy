@@ -33,6 +33,7 @@ li{
 #playlist-cover{
     position: absolute;
     height: 100px;
+    width: 100px;
     margin:0;
     top:150px;
     z-index: 0;

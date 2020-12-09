@@ -154,7 +154,7 @@ export default function Playlist( ){
 
 						return (
 							<>
-								{!loading && <img id='playlist-cover'src={currentCover} alt="" className="cover"/>}
+								{!loading && currentId && <img id='playlist-cover'src={currentCover} alt="" className="cover"/>}
 								<div className="playlist-list">
 									<h2>Your Playlists: </h2>
 									<ul>
