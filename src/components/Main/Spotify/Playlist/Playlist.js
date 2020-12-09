@@ -115,12 +115,19 @@ export default function Playlist( ){
 		return features;
 	
 	}
-	
+
+
 	useEffect(async ()=>{
 		if(tracks){
-			let temp = await fetchTrackFeatures();
-			setData(processing(temp));
-			setLoading(false);
+			try{
+				let temp = await fetchTrackFeatures();
+				setData(processing(temp));
+				setLoading(false);
+			}catch(err){
+				alert(err);
+				setLoading(false);
+			}
+
 		}
 
 	},[tracks]);
@@ -151,6 +158,7 @@ export default function Playlist( ){
 									playlistIds
 										.map(playlist=>
 													<li className = 'playlist-element'
+														style = {playlist.id == currentId ? {color:'orange'}:null}
 														onClick={()=>{setCurrentId(playlist.id); setLoading(true)}}>
 														<RiPlayList2Fill style={{marginRight:10}}/>
 														{playlist.name}

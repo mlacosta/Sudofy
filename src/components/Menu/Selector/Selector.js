@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
-export default function Selector({ children, name, color }){
+export default function Selector({ children, className, name, color, path }){
 
 	const selector = {
 		border: `1px solid ${color}`,
@@ -12,8 +13,15 @@ export default function Selector({ children, name, color }){
 		borderRadius:5
 	}
 
-	return(<div className='selector-menu' style={selector}>
-				{children}
-				<span className="selector-name">{name}</span>	
-		   </div>)
+	return(
+		<Link to={path} style={{textDecoration:'none', color:'#fff'}}>
+			<div className={className}>
+				<div className='selector-menu' style={selector}>
+					{children}
+					<span className="selector-name">{name}</span>	
+			</div>
+			</div>
+		</Link>
+
+		)
 }

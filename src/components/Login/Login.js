@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../img/logo3.JPG';
+import logo from '../../img/logo2.jpg';
 import 'react-spotify-auth/dist/index.css';
 import { SpotifyAuth, Scopes } from 'react-spotify-auth';
 import { useSpring, animated } from 'react-spring';

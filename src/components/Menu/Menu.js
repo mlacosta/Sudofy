@@ -52,20 +52,20 @@ export default function Menu(){
 			{open ? 
 				(						
 					<div className="side-menu" style={props}>
-						<IoIosCloseCircleOutline style={close} onClick={handleClick}/>
-						<Selector name='Profile Statistics' color='red'>
+						<IoIosCloseCircleOutline className='side-element' style={close} onClick={handleClick}/>
+						<Selector className='side-element' name='Profile Statistics' color='#7d1507' path='/callback'>
 							<RiHeadphoneFill style={icons}/>
 						</Selector>
-						<Selector name='Playlist Analysis' color='orange'>
+						<Selector className='side-element' name='Playlist Analysis' color='#ad6d20' path='/playlist'>
 							<RiPlayList2Fill style={icons}/>
 						</Selector>
-						<Selector name='Artist Analysis' color='green'>
+						<Selector className='side-element' name='Artist Analysis' color='green' path='/artist'>
 							<IoMdMicrophone style={icons}/>
 						</Selector>
-						<Selector name='Track Analysis' color='blue'>
+						<Selector className='side-element' name='Track Analysis' color='#193b78' path='/track'>
 							<FaMusic style={icons}/>
 						</Selector>
-						<Selector name='Synesthesia (wow!)' color='yellow'>
+						<Selector className='side-element' name='Synesthesia (wow!)' color='#a89415' path='/synesthesia'>
 							<BiEqualizer style={icons}/>
 						</Selector>
 						<img id='spotify'src={logo} alt=""/>
