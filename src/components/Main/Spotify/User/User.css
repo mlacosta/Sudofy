@@ -1,0 +1,37 @@
+.user-wrapper{
+    width: 100%;
+    position: relative;
+}
+
+.profile-wrap{
+
+}
+.user-name{
+    font-size: 1.2rem ;
+    font-weight: 300;
+    margin: 20px 0;
+
+}
+
+.user-img{
+    height: 150px;
+    border-radius:5px;
+}
+
+.info-wrap {
+    position: absolute;
+    top:50px;
+    left:26%;
+    width:500px;
+    display: flex;
+    background-color: rgba(14, 14, 14, 0.418);;
+    padding:20px;
+    height: 240px;
+    border-radius: 3px;
+}
+
+.user-info{
+    list-style-type: none;
+    text-align: left;
+    margin-left: 20px;
+}

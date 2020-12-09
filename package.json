@@ -11,6 +11,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-css-spinners": "^4.0.2",
     "react-dom": "^17.0.1",
+    "react-flag-icon-css": "^1.0.25",
     "react-icons": "^4.1.0",
     "react-infinite": "^0.13.0",
     "react-router": "^5.2.0",

@@ -7,10 +7,12 @@ import { useSpring } from 'react-spring';
 import { RiPlayList2Fill, RiHeadphoneFill } from 'react-icons/ri';
 import { IoMdMicrophone } from 'react-icons/io';
 import { FaMusic } from 'react-icons/fa';
+import { BiEqualizer } from 'react-icons/bi';
+import logo from '../../img/spotify.JPG'
 
 export default function Menu(){
 
-	let [open, setOpen] = useState(false);
+	let [open, setOpen] = useState(true);
 
 	const handleClick = ()=>{
 		setOpen(!open);
@@ -63,7 +65,10 @@ export default function Menu(){
 						<Selector name='Track Analysis' color='blue'>
 							<FaMusic style={icons}/>
 						</Selector>
-						
+						<Selector name='Synesthesia (wow!)' color='yellow'>
+							<BiEqualizer style={icons}/>
+						</Selector>
+						<img id='spotify'src={logo} alt=""/>
 					</div>
 
 				) : (

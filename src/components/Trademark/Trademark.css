@@ -2,10 +2,25 @@
     position: absolute;
     right: 20px;
     bottom: 20px;
+    
+    
 }
 .icons-container{
     color:white;
     position: relative;
     top:10px;
     font-size: 5rem;
+    
+}
+
+#waifu{
+    position:absolute;
+    height: 280px;
+    top:-146px;
+    right:-20px;
+    z-index: 0;
+}
+
+.trademark-name{
+    z-index: 20;
 }

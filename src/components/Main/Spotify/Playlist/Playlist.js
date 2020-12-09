@@ -4,6 +4,7 @@ import { useAppContext } from '../../../AppContext/AppContext';
 import { RadarChart, PolarGrid,PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
 import './Playlist.css' ;
 import { Ellipsis } from 'react-css-spinners';
+import { RiPlayList2Fill } from 'react-icons/ri';
 
 function processing(features) {
 	
@@ -149,10 +150,12 @@ export default function Playlist( ){
 									{
 									playlistIds
 										.map(playlist=>
-												<li className = 'playlist-element'
-													onClick={()=>{setCurrentId(playlist.id); setLoading(true)}}>
-													{playlist.name}
-												</li>
+													<li className = 'playlist-element'
+														onClick={()=>{setCurrentId(playlist.id); setLoading(true)}}>
+														<RiPlayList2Fill style={{marginRight:10}}/>
+														{playlist.name}
+													</li>
+
 										)
 									}
 								</ul>
