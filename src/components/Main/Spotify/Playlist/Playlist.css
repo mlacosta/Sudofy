@@ -29,3 +29,11 @@
 li{
     margin: 10px 0;
 }
+
+#playlist-cover{
+    position: absolute;
+    height: 100px;
+    margin:0;
+    top:150px;
+    z-index: 0;
+}

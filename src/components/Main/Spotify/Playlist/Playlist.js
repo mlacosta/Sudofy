@@ -83,6 +83,7 @@ export default function Playlist( ){
 	let [playlistIds, setIds] = useState([]);
 	let [currentId, setCurrentId] = useState(null); //playlist ID
 	let [tracks, setTracks] = useState(null);
+	let [currentCover, setCurrentCover] = useState(null);
 	let [data,setData] = useState([
 		{"description": "Acousticness",
 		 'value': 0},
@@ -152,22 +153,26 @@ export default function Playlist( ){
 						}
 
 						return (
-							<div className="playlist-list">
-								<ul>
-									{
-									playlistIds
-										.map(playlist=>
-													<li className = 'playlist-element'
-														style = {playlist.id == currentId ? {color:'orange'}:null}
-														onClick={()=>{setCurrentId(playlist.id); setLoading(true)}}>
-														<RiPlayList2Fill style={{marginRight:10}}/>
-														{playlist.name}
-													</li>
+							<>
+								{!loading && <img id='playlist-cover'src={currentCover} alt="" className="cover"/>}
+								<div className="playlist-list">
+									<h2>Your Playlists: </h2>
+									<ul>
+										{
+										playlistIds
+											.map(playlist=>
+														<li className = 'playlist-element'
+															style = {playlist.id == currentId ? {color:'orange'}:null}
+															onClick={()=>{setCurrentId(playlist.id); setCurrentCover(playlist.images[0].url); setLoading(true)}}>
+															<RiPlayList2Fill style={{marginRight:10}}/>
+															{playlist.name}
+														</li>
 
-										)
-									}
-								</ul>
-							</div>
+											)
+										}
+									</ul>
+								</div>
+							</>
 					)}}
 				</UserPlaylists>
 				<RadarChart outerRadius={300} width={750} height={700} data={data} style={{position:'relative',top:30,left:50, color:'white'}}>
