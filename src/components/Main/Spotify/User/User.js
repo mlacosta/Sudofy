@@ -74,7 +74,7 @@ export default function User(){
 										<div className='tracks-top-wrap'>
 											{`#${key+1}  `}
 											<img className='user-top-tracks-img'src={track.album.images[0].url} alt=""/>
-											<span key={track.id} style={{color:'white',fontWeight:300, fontSize:'.9rem'}}>{track.name.slice(0,35)}</span>
+											<span key={track.id} style={{color:'white',fontWeight:300, fontSize:'.9rem'}}>{track.name.slice(0,34)}</span>
 										</div>
 									))
 								) : null
