@@ -17,6 +17,20 @@ export default function User(){
 		from: {opacity:0},
 		config:{duration:1000}
 	  })
+	
+	const props2 = useSpring({
+		transform: 'translate3d(0,0,0)',
+		opacity: 1,
+		from: {opacity:0},
+		config:{duration:2000}
+	})
+
+	const props3 = useSpring({
+		transform: 'translate3d(0,0,0)',
+		opacity: 1,
+		from: {opacity:0},
+		config:{duration:6000}
+	})
 
 	if (data){
 		return(
@@ -36,8 +50,8 @@ export default function User(){
 							<li></li>
 						</ul>
 					</animated.div>
-					<animated.div className="info-box user-artist-wrap">
-						<h2 style={{position:'absolute',top:290, left:53}}>Top Artists</h2>
+					<animated.div className="info-box user-artist-wrap" style={props1}>
+						<h2 style={{position:'absolute',top:18, left:50}}>Top Artists</h2>
 						<UserTop type="artists">
 							{({data:artists}) =>
 								artists ? (
@@ -51,7 +65,7 @@ export default function User(){
 							}
 						</UserTop>
 					</animated.div>
-					<animated.div className="info-box user-tracks-wrap">
+					<animated.div className="info-box user-tracks-wrap" style={props1}>
 						<h2 style={{position:'absolute',top:20, right:125}}>Top Tracks</h2>
 						<UserTop type="tracks">
 							{({data:tracks}) =>
@@ -67,8 +81,8 @@ export default function User(){
 							}
 						</UserTop>
 					</animated.div>
-					<animated.div className="info-box user-search">
-							<img src="https://data.whicdn.com/images/133670307/original.gif" style={{height:'210px',margin:0}}/>
+					<animated.div className="info-box user-search" style={props1}>
+							<img src="https://i.pinimg.com/originals/e2/45/27/e24527408cab572eb4a5adc8aec3afb5.gif" style={{height:'210px',margin:0}}/>
 					</animated.div>
 				</div>
 				

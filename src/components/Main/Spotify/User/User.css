@@ -78,9 +78,9 @@
     grid-row: 1/6;
     padding-top: 43px;
     padding-left: 40px;
-
     overflow:hidden;
     text-align: left;
+    width: 322px;
 }
 
 .user-search{

@@ -32,7 +32,7 @@ export default function Login(){
 		<>
 			<animated.h1 className="app-title"  style={propsh1}>Sudofy!</animated.h1>
         	<animated.h2 className='app-subtitle' style={propsh2}>Visualize all your Spotify data</animated.h2>
-			<animated.img className = "hatsune" src={logo} style={props}></animated.img>
+			<animated.img className = "hatsune" src={'https://i.pinimg.com/originals/cb/39/26/cb3926914e31158f04e7d04ede2f5d3a.gif'} style={props}></animated.img>
 			<div className='log-wrapper'>
 			<SpotifyAuth
 				redirectUri = {process.env.REACT_APP_SPOTIFY_REDIRECT_URI}
