@@ -37,7 +37,7 @@ export default function Login(){
 			<SpotifyAuth
 				redirectUri = {process.env.REACT_APP_SPOTIFY_REDIRECT_URI}
 				clientID = {process.env.REACT_APP_SPOTIFY_CLIENT_ID}
-				scopes = {[Scopes.userReadPrivate, Scopes.userReadEmail]}
+				scopes = {[Scopes.userReadPrivate, Scopes.userReadEmail, Scopes.userTopRead]}
 			/>
 			</div>
 	   </>

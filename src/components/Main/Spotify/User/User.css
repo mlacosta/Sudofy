@@ -3,9 +3,19 @@
     position: relative;
 }
 
-.profile-wrap{
 
+.artist-top-wrap{
+    width: 140px;
+    display: block;
+    padding: 10px;
 }
+
+.user-top-img{
+    height: 100px;
+}
+
+
+
 .user-name{
     font-size: 1.2rem ;
     font-weight: 300;
@@ -19,14 +29,17 @@
 }
 
 .info-wrap {
-    position: absolute;
-    top:50px;
+    top:35px;
     left:26%;
     width:500px;
     display: flex;
-    background-color: rgba(14, 14, 14, 0.418);;
-    padding:20px;
     height: 240px;
+}
+
+.info-box{
+    position: absolute;
+    background-color: rgba(14, 14, 14, 0.418);
+    padding:20px;
     border-radius: 3px;
 }
 
@@ -34,4 +47,38 @@
     list-style-type: none;
     text-align: left;
     margin-left: 20px;
+}
+
+.user-artist-wrap{
+    padding-top:40px;
+    display: flex;
+    flex-wrap: wrap;
+    width:750px;
+    height: 468px;
+    overflow: hidden;
+    top:300px;
+    left:26%;
+}
+
+.user-top-tracks-img{
+    height: 25px;
+    margin-right:5px;
+}
+
+.user-tracks-wrap{
+    padding-top: 53px;
+    padding-left: 40px;
+    width: 350px;
+    top:35px;
+    right:15%;
+    height: 734px;
+    overflow:hidden;
+    text-align: left;
+}
+
+.user-search{
+    top:35px;
+    width: 250px;
+    height: 250px;
+    left: 53%
 }
