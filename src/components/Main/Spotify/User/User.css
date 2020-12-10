@@ -3,6 +3,15 @@
     position: relative;
 }
 
+.user-grid{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1.5fr ;
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 20px;
+    width: 1150px;
+    height: 750px;
+    margin: 20px auto;
+}
 
 .artist-top-wrap{
     width: 140px;
@@ -13,7 +22,6 @@
 .user-top-img{
     height: 100px;
 }
-
 
 
 .user-name{
@@ -29,35 +37,33 @@
 }
 
 .info-wrap {
-    top:35px;
-    left:26%;
-    width:500px;
+    grid-column: 1 ;
+    grid-row: 1;
     display: flex;
-    height: 240px;
+    
 }
 
 .info-box{
-    position: absolute;
     background-color: rgba(14, 14, 14, 0.418);
     padding:20px;
     border-radius: 3px;
 }
 
 .user-info{
+    
     list-style-type: none;
     text-align: left;
     margin-left: 20px;
 }
 
 .user-artist-wrap{
+    grid-column: 1 / 4;
+    grid-row: 2 / 6;
     padding-top:40px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    width:750px;
-    height: 468px;
     overflow: hidden;
-    top:300px;
-    left:26%;
 }
 
 .user-top-tracks-img{
@@ -66,19 +72,15 @@
 }
 
 .user-tracks-wrap{
+    grid-column: 4/5;
+    grid-row: 1/6;
     padding-top: 53px;
     padding-left: 40px;
-    width: 350px;
-    top:35px;
-    right:15%;
-    height: 734px;
+
     overflow:hidden;
     text-align: left;
 }
 
 .user-search{
-    top:35px;
-    width: 250px;
-    height: 250px;
-    left: 53%
+    grid-column: 2/4git;
 }
