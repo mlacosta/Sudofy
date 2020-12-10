@@ -19,7 +19,7 @@ export default function Main(props){
 
 				<Switch>
 					<Route path='/callback'>
-						<h1 style={{fontSize:'1.5rem'}}>Profile Stats</h1>  
+						{/*<h1 style={{fontSize:'1.5rem'}}>Profile Stats</h1>*/} 
 						<User/>
 					</Route>
 					<Route exact path='/playlist'>

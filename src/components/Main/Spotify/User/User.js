@@ -37,13 +37,12 @@ export default function User(){
 						</ul>
 					</animated.div>
 					<animated.div className="info-box user-artist-wrap">
-						<h2 style={{position:'absolute',top:18, left:40}}>Top Artists</h2>
+						<h2 style={{position:'absolute',top:290, left:53}}>Top Artists</h2>
 						<UserTop type="artists">
 							{({data:artists}) =>
 								artists ? (
 									artists.items.map(artist => (
 										<div className='artist-top-wrap'>
-											
 											<img className='user-top-img'src={artist.images[0].url} alt=""/>
 											<span key={artist.id} style={{color:'white'}}>{artist.name}</span>
 										</div>
@@ -53,7 +52,7 @@ export default function User(){
 						</UserTop>
 					</animated.div>
 					<animated.div className="info-box user-tracks-wrap">
-						<h2 style={{position:'absolute',top:18, left:40}}>Top Tracks</h2>
+						<h2 style={{position:'absolute',top:20, right:125}}>Top Tracks</h2>
 						<UserTop type="tracks">
 							{({data:tracks}) =>
 								tracks ? (
@@ -69,7 +68,7 @@ export default function User(){
 						</UserTop>
 					</animated.div>
 					<animated.div className="info-box user-search">
-
+							<img src="https://data.whicdn.com/images/133670307/original.gif" style={{height:'210px',margin:0}}/>
 					</animated.div>
 				</div>
 				
