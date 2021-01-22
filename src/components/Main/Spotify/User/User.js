@@ -1,7 +1,7 @@
 import './User.css';
 import { useAppContext } from '../../../AppContext/AppContext';
 import { useUser, UserTop } from 'react-spotify-api'
-import { Ellipsis } from 'react-css-spinners';
+import { Ellipsis, DualRing  } from 'react-css-spinners';
 import { useSpring, animated } from 'react-spring';
 import { FaSpotify } from 'react-icons/fa';
 import FlagIcon from '../../../../FlagIcon';
@@ -21,8 +21,8 @@ export default function User(){
 	const props2 = useSpring({
 		transform: 'translate3d(0,0,0)',
 		opacity: 1,
-		from: {opacity:0},
-		config:{duration:2000}
+		from: {transform:'translate3d(0,600px,0)',opacity:0},
+		config:{duration:1500}
 	})
 
 	const props3 = useSpring({
@@ -61,7 +61,7 @@ export default function User(){
 											<span key={artist.id} style={{color:'white'}}>{artist.name}</span>
 										</div>
 									))
-								) : null
+								) : <DualRing style={{position:'relative',top:140}}/>
 							}
 						</UserTop>
 					</animated.div>
@@ -77,12 +77,13 @@ export default function User(){
 											<span key={track.id} style={{color:'white',fontWeight:300, fontSize:'.9rem'}}>{track.name.slice(0,34)}</span>
 										</div>
 									))
-								) : null
+								) : <DualRing style={{position:'relative',top:240,left:85}}/>
 							}
 						</UserTop>
 					</animated.div>
 					<animated.div className="info-box user-search" style={props1}>
 							<img src="https://i.pinimg.com/originals/e2/45/27/e24527408cab572eb4a5adc8aec3afb5.gif" style={{height:'210px',margin:0}}/>
+							
 					</animated.div>
 				</div>
 				

@@ -3,7 +3,7 @@ import { UserPlaylists, PlaylistTracks, SpotifyApiContext, Track } from 'react-s
 import { useAppContext } from '../../../AppContext/AppContext';
 import { RadarChart, PolarGrid,PolarAngleAxis, PolarRadiusAxis, Radar,Legend  } from 'recharts';
 import './Playlist.css' ;
-import { Ellipsis } from 'react-css-spinners';
+import { Ellipsis, DualRing } from 'react-css-spinners';
 import { RiPlayList2Fill } from 'react-icons/ri';
 
 function processing(features) {
@@ -80,7 +80,7 @@ function processing(features) {
 
 export default function Playlist( ){
 
-	let [playlistIds, setIds] = useState([]);
+	let [playlistIds, setIds] = useState(null);
 	let [currentId, setCurrentId] = useState(null); //playlist ID
 	let [tracks, setTracks] = useState(null);
 	let [currentCover, setCurrentCover] = useState(null);
@@ -157,7 +157,7 @@ export default function Playlist( ){
 								{!loading && currentId && <img id='playlist-cover'src={currentCover} alt="" className="cover"/>}
 								<div className="playlist-list">
 									<h2>Your Playlists: </h2>
-									<ul>
+									{playlistIds ? (<ul>
 										{
 										playlistIds
 											.map(playlist=>
@@ -170,7 +170,7 @@ export default function Playlist( ){
 
 											)
 										}
-									</ul>
+									</ul>) : (<DualRing style={{position:'absolute', top:200, left:60}}/>)}
 								</div>
 							</>
 					)}}
